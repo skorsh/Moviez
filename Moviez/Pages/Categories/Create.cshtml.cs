@@ -22,9 +22,13 @@ namespace Moviez.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
-            await _context.Categories.AddAsync(Category);
-            await _context.SaveChangesAsync();
-            return RedirectToPage("Index");
+            if (ModelState.IsValid)
+            {
+                await _context.Categories.AddAsync(Category);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            return Page();
         }
     }
 }
