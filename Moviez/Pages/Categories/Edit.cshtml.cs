@@ -27,6 +27,7 @@ namespace Moviez.Pages.Categories
             {
                 _context.Categories.Update(Category);
                 await _context.SaveChangesAsync();
+                TempData["success"] = "Category updated successfully";
                 return RedirectToPage("Index");
             }
             return Page();

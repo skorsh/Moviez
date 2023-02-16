@@ -29,6 +29,7 @@ namespace Moviez.Pages.Categories
             {
                 _context.Categories.Remove(categoryFromDb);
                 await _context.SaveChangesAsync();
+                TempData["success"] = "Category deleted successfully";
                 return RedirectToPage("Index");
             }
 
